@@ -1,0 +1,24 @@
+<% layout('layout/boiler')  %> 
+
+<div class="top">
+  <center><img class="img" src="/assets/images/error.gif" alt="" height="200px" width="230px"></center>
+  <div class="alert alert-warning" role="alert">
+    <h4 class="alert-heading"><%= err.status %> </h4>
+    <p><%= err.message  %> </p>
+    <hr>
+    <!-- <p class="mb-0"><%=err.stack  %> </p> -->
+  </div>
+
+</div>
+<style>
+  .top{
+    height: 60vh;
+    margin-top: 150px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 150px;
+    /* background-color: red; */
+  }
+
+</style>

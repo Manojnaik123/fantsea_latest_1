@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Mobile Web-app fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Meta tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/assets/images/main.png">
+
+    <!--Title-->
+    <title>Fantsea - Events & Accommodation </title>
+
+    <!--CSS styles-->
+    <link rel="stylesheet" media="all" href="/css/bootstrap.css" />
+    <link rel="stylesheet" media="all" href="/css/animate.css" />
+    <link rel="stylesheet" media="all" href="/css/font-awesome.css" />
+    <link rel="stylesheet" media="all" href="/css/linear-icons.css" />
+    <link rel="stylesheet" media="all" href="/css/hotel-icons.css" />
+    <link rel="stylesheet" media="all" href="/css/magnific-popup.css" />
+    <link rel="stylesheet" media="all" href="/css/owl.carousel.css" />
+    <link rel="stylesheet" media="all" href="/css/datepicker.css" />
+    <link rel="stylesheet" media="all" href="/css/theme.css" />
+
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .mtb{
+            margin-top: 20px;
+        }
+        a{
+            text-decoration: none;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <!-- <div class="page-loader"></div> -->
+
+    <div class="wrapper">
+        <header>
+
+            <!-- ======================== Navigation ======================== -->
+
+            <div class="container">
+
+                <!-- === navigation-top === -->
+
+                <nav class="navigation-top clearfix">
+
+                    <!-- navigation-top-left -->
+
+                    <div class="navigation-top-left">
+                        <a class="box" href="https://www.facebook.com/">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a class="box" href="https://www.instagram.com/fantsea2022/">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a class="box" href="https://wa.me/+917893208384/?text=hello">
+                            <i class="fa fa-whatsapp"></i>
+                        </a>
+                    </div>
+
+                    <!-- navigation-top-right -->
+
+                    <div class="navigation-top-right">
+                        <a class="box" href="/">
+                            <!-- <i class="icon icon-star"></i>  -->
+                            
+                        </a>
+                        <a class="box" href="#">
+                            <!-- <i class="icon icon-tag"></i>  -->
+                            
+                        </a>
+                        <a class="box" >
+                            <i class="icon icon-phone-handset"></i> 
+                            +91 7893208384
+                        </a>
+                    </div>
+                </nav>
+
+                <!-- === navigation-main === -->
+
+                <nav class="navigation-main clearfix">
+
+                    <!-- logo -->
+
+                    <div class="logo animated fadeIn">
+                        <a href="/home">
+                            <img class="logo-desktop" src="/assets/images/main.png" alt="Alternate Text" width="80px" height="80px"/>
+                            <img class="logo-mobile" src="/assets/images/main.png" alt="Alternate Text" width="60px" height="60px" margin='5px'/>
+                        </a>
+                    </div>
+
+                    <!-- toggle-menu -->
+
+                    <div class="toggle-menu"><i class="icon icon-menu"></i></div>
+
+                    <!-- navigation-block -->
+
+                    <div class="navigation-block clearfix">
+
+                        <!-- navigation-left -->
+
+                        <ul class="navigation-left">
+                            <li>
+                                <a href="/home">Home </i></span></a>
+                                <!-- <ul>
+                                    <span class="open-dropdown"><i class="fa fa-angle-down">
+                                    <li><a href="index.html">Home - Booking intro</a></li>
+                                    <li><a href="index-2.html">Home - Booking box</a></li>
+                                    <li><a href="index-3.html">Home - Rooms intro</a></li>
+                                </ul> -->
+                            </li>
+                            <!-- <li>
+                                <a href="/resorts">resorts <span class="open-dropdown"></i></span></a>
+                                
+                            </li> -->
+                            <li>
+                                <a >Events <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                <ul>
+                                    <li><a href="/events">surprise event for couple</a></li>
+                                    <li><a href="/events2">other events</a></li>
+                                   
+                                </ul>
+                                
+                            </li>
+                        </ul>
+
+                        <!-- navigation-right -->
+
+                        <ul class="navigation-right">
+                            <% if(currentUser){ %> 
+                            <li>
+                                <a >Admin <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                <ul>
+                                    <li><a href="/Addevents">addevents</a></li>
+                                    <li><a href="/Addevents2">addevents2</a></li>
+                                    <li><a href="/signup">signup</a></li>
+                                    <li><a href="/callback">callback list</a></li>
+                                    <li><a href="/mail">mail</a></li>
+                                    <li><a href="/logout"><form action="/logout" method="post"><button>logout</button></form></a>  </li>
+                                    
+                                    
+                                   
+                                </ul>
+                                
+                            </li>
+                            <% } %> 
+                            <!-- <li>
+                                <a href="/about">About</a>
+                            </li> -->
+                            <!-- <li>
+                                <a href="#">admin <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                <ul>
+                                    <li><a href="/addresorts">add other events</a></li>
+                                    <li><a href="/addevents">add surprise events for couple</a></li>
+                                    <li><a href="/callback">call back list</a></li>
+                                </ul>
+                            </li> -->
+                            <li>
+                                <a href="/contact">Contact</a>
+                            </li>
+                            
+                        </ul>
+
+                    </div> <!--/navigation-block-->
+
+                </nav>
+            </div> <!--/container-->
+
+        </header>
+        <%- body %>
+        <footer>
+            <div class="container">
+
+                <!--footer links-->
+                <div class="footer-links">
+                    <div class="row">
+                        <div class="col-sm-6 footer-left">
+                            <a href="/home">home</a> &nbsp; | &nbsp; <a href="/events2">other events</a> | &nbsp; <a href="/events">eves</a>
+                        </div>
+                        <div class="col-sm-6 footer-right">
+                            <a href="/login">...</a> &nbsp; | &nbsp; <a href="/"></a> | &nbsp; <a href="/contact">contact</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--footer social-->
+
+                <div class="footer-social mtb">
+                    <div class="row">
+                        <div class="col-sm-12 text-center hidden">
+                            <a href="/home" class="footer-logo"><img src="/assets/images/logo.png" alt="Alternate Text" /></a>
+                        </div>
+                        <div class="col-sm-12 icons">
+                            <ul>
+                                <li><a href="/https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                                <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube"></i></a></li> -->
+                                <li><a href="https://www.instagram.com/fantsea2022/"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-12 copyright">
+                            <small>Copyright &copy; 2017 &nbsp; | &nbsp; <a href="/home">Fantsea</a></small>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <img src="/assets/images/main.png" alt="" height="80px" width="80px"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/jquery-ui.js"></script>
+        <script src="/js/jquery.bootstrap.js"></script>
+        <script src="/js/jquery.magnific-popup.js"></script>
+        <script src="/js/jquery.owl.carousel.js"></script>
+        <script src="/js/main.js"></script>
+        <script>
+            (function () {
+              'use strict'
+            
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              var forms = document.querySelectorAll('.val-form')
+            
+              // Loop over them and prevent submission
+              Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                  form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                      event.preventDefault()
+                      event.stopPropagation()
+                    }
+            
+                    form.classList.add('was-validated')
+                  }, false)
+                })
+            })()
+            </script>
+            
+    </div>
+</body>
+</html>

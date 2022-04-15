@@ -1,0 +1,453 @@
+
+<% layout('layout/boiler')  %> 
+
+
+<!-- <div class="page-loader"></div> -->
+
+<div class="wrapper">
+
+   
+
+    <!-- ========================  Room ======================== -->
+
+    <section class="page">
+
+        <!-- ===  Page header === -->
+
+        <div class="page-header" style="background-image:url(assets/images/header-1.jpg)">
+            <div class="container">
+                <h2 class="title"><%= data.title  %> </h2>
+                <p>Available from &#8377;<%=data.price  %> </p>
+                <% if(currentUser){ %> 
+                <form action="/events/<%=data._id%>?_method=DELETE" method="POST"><button class="btn btn-danger " style="margin-left: 10px;" >Delete</button></form>
+                <% } %> 
+            </div>
+        </div>
+
+        <div class="room">
+
+            <!-- === Room gallery === -->
+
+            <div class="room-gallery">
+                <div class="container">
+                    <div class="owl-slider owl-theme owl-slider-gallery">
+
+                        <!-- === slide item === -->
+                        <% for(let img of data.images){ %> 
+                            <div class="item" style="background-image:url(<%=img.url%>);background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: cover;">
+                                <img src="" alt="" />
+                            </div>
+                            <% } %> 
+                        
+
+                        <!-- === slide item === -->
+
+                        <!-- <div class="item" style="background-image:url(assets/images/room-2.jpg)">
+                            <img src="/assets/images/img2.jpeg" alt="" />
+                        </div> -->
+
+
+                        <!-- === slide item === -->
+
+                        <!-- <div class="item" style="background-image:url(assets/images/room-1.jpg)">
+                            <img src="/assets/images/img3.jpeg" alt="" />
+                        </div> -->
+
+
+                    </div> <!--/owl-slider-->
+
+                </div>
+            </div> <!--/room-gallery-->
+            <!-- === Booking === -->
+
+            <div class="booking booking-inner">
+
+                <div class="container">
+
+                    <div class="booking-wrapper">
+                        <div class="row">
+
+                            <!--=== date arrival ===-->
+
+                            <!-- <div class="col-xs-4 col-sm-3">
+                                <div class="date" id="dateArrival" data-text="Arrival">
+                                    <input class="datepicker" readonly="readonly" />
+                                    <div class="date-value"></div>
+                                </div>
+                            </div> -->
+
+                            <!--=== date departure ===-->
+
+                            <!-- <div class="col-xs-4 col-sm-3">
+                                <div class="date" id="dateDeparture" data-text="Departure">
+                                    <input class="datepicker" readonly="readonly" />
+                                    <div class="date-value"></div>
+                                </div>
+                            </div> -->
+
+                            <!--=== guests ===-->
+
+                            <!-- <div class="col-xs-4 col-sm-2">
+
+                                <div class="guests" data-text="Guests">
+                                    <div class="result">
+                                        <input class="qty-result" type="text" value="2" id="qty-result" readonly="readonly" />
+                                        <div class="qty-result-text date-value" id="qty-result-text"></div>
+                                    </div> -->
+                                    <!--=== guests list ===-->
+                                    <!-- <ul class="guest-list">
+
+                                        <li class="header">
+                                            Please choose number of guests <span class="qty-apply"><i class="icon icon-cross"></i></span>
+                                        </li> -->
+
+                                        <!--=== adults ===-->
+
+                                        <!-- <li class="clearfix"> -->
+
+                                            <!--=== Adults value ===-->
+
+                                            <!-- <div>
+                                                <input class="qty-amount" value="2" type="text" id="ticket-adult" data-value="2" readonly="readonly" />
+                                            </div>
+
+                                            <div>
+                                                <span>Adults <small>16+ years</small></span>
+                                            </div> -->
+
+                                            <!--=== Add/remove quantity buttons ===-->
+
+                                            <!-- <div>
+                                                <input class="qty-btn qty-minus" value="-" type="button" data-field="ticket-adult" />
+                                                <input class="qty-btn qty-plus" value="+" type="button" data-field="ticket-adult" />
+                                            </div>
+
+                                        </li> -->
+
+                                        <!--=== chilrens ===-->
+
+                                        <!-- <li class="clearfix"> -->
+
+                                            <!--=== Adults value ===-->
+
+                                            <!-- <div>
+                                                <input class="qty-amount" value="0" type="text" id="ticket-children" data-value="0" readonly="readonly" />
+                                            </div> -->
+
+                                            <!--=== Label ===-->
+
+                                            <!-- <div>
+                                                <span>Children <small>2-11 years</small></span>
+                                            </div> -->
+
+
+                                            <!--=== Add/remove quantity buttons ===-->
+
+                                            <!-- <div>
+                                                <input class="qty-btn qty-minus" value="-" type="button" data-field="ticket-children" />
+                                                <input class="qty-btn qty-plus" value="+" type="button" data-field="ticket-children" />
+                                            </div>
+
+                                        </li> -->
+
+                                        <!--=== Infants ===-->
+
+                                        <!-- <li class="clearfix"> -->
+
+                                            <!--=== Adults value ===-->
+
+                                            <!-- <div>
+                                                <input class="qty-amount" value="0" type="text" id="ticket-infants" data-value="0" readonly="readonly" />
+                                            </div> -->
+
+                                            <!--=== Label ===-->
+
+                                            <!-- <div>
+                                                <span>Infants <small>Under 2 years</small></span>
+                                            </div> -->
+
+                                            <!--=== Add/remove quantity buttons ===-->
+
+                                            <!-- <div>
+                                                <input class="qty-btn qty-minus" value="-" type="button" data-field="ticket-infants" />
+                                                <input class="qty-btn qty-plus" value="+" type="button" data-field="ticket-infants" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> -->
+
+                            <!--=== button ===-->
+
+                            <div class="col-xs-12 col-sm-4">
+                                <a href="#subs" class="btn btn-clean">
+                                    Call now
+                                    <small>Best Prices Guaranteed</small>
+                                </a>
+                            </div>
+
+                        </div> <!--/row-->
+                    </div><!--/booking-wrapper-->
+                </div> <!--/container-->
+            </div> <!--/booking-->
+            <!-- ===  Room overview === -->
+
+            <div class="room-overview">
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+
+                            <!-- === Room aminities === -->
+
+                            <div class="room-block room-aminities">
+
+                                <h2 class="title">Event aminities</h2>
+
+                                <div class="row">
+
+                                    <!--=== item ===-->
+                                    <% if(data.Drinks) {%> 
+                                    <div class="col-xs-6 col-sm-2">
+                                        <figure>
+                                            <figcaption>
+                                                <img src="/assets/images/drinksp.png" width="60px" height="60px" alt="">
+                                                <p>Drinks</p>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <% } %> 
+
+                                    <% if(data.food) {%> 
+                                        <div class="col-xs-6 col-sm-2">
+                                            <figure>
+                                                <figcaption>
+                                                    <img src="/assets/images/foodp.png" width="60px" height="60px" alt="">
+                                                    <p>Food</p>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                        <% } %> 
+
+                                        <% if(data.speaker) {%> 
+                                            <div class="col-xs-6 col-sm-2">
+                                                <figure>
+                                                    <figcaption>
+                                                        <img src="/assets/images/speakerp.png" width="60px" height="60px" alt="">
+                                                        <p>Speaker</p>
+                                                    </figcaption>
+                                                </figure>
+                                            </div>
+                                            <% } %> 
+
+                                            <% if(data.butler) {%> 
+                                                <div class="col-xs-6 col-sm-2">
+                                                    <figure>
+                                                        <figcaption>
+                                                            <img src="/assets/images/butlerp.png" width="60px" height="60px" alt="">
+                                                            <p>Butler</p>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
+                                                <% } %> 
+                                                <% if(data.parking) {%> 
+                                                    <div class="col-xs-6 col-sm-2">
+                                                        <figure>
+                                                            <figcaption>
+                                                                <img src="/assets/images/parkingp.png" width="50px" height="50px" alt="">
+                                                                <p>Parking</p>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </div>
+                                                    <% } %> 
+
+                                    <!--=== item ===-->
+
+                                    <!-- <div class="col-xs-6 col-sm-2">
+                                        <figure>
+                                            <figcaption>
+                                                <span class="hotelicon hotelicon-king-bed"></span>
+                                                <p>1 Kingsize bed</p>
+                                            </figcaption>
+                                        </figure>
+                                    </div> -->
+
+                                    <!--=== item ===-->
+
+                                    <!-- <div class="col-xs-6 col-sm-2">
+                                        <figure>
+                                            <figcaption>
+                                                <span class="hotelicon hotelicon-guest"></span>
+                                                <p>2 People</p>
+                                            </figcaption>
+                                        </figure>
+                                    </div> -->
+
+                                    <!--=== item ===-->
+
+                                    <!-- <div class="col-xs-6 col-sm-2"> -->
+                                        <!-- <figure>
+                                            <figcaption>
+                                                <span class="hotelicon hotelicon-wifi"></span>
+                                                <p>Internet</p>
+                                            </figcaption>
+                                        </figure>
+                                    </div> -->
+
+                                    <!--=== item ===-->
+
+                                    <!-- <div class="col-xs-6 col-sm-2">
+                                        <figure>
+                                            <figcaption>
+                                                <span class="hotelicon hotelicon-washer"></span>
+                                                <p>Washer</p>
+                                            </figcaption>
+                                        </figure>
+                                    </div> -->
+
+                                    <!--=== item ===-->
+<!-- 
+                                    <div class="col-xs-6 col-sm-2">
+                                        <figure>
+                                            <figcaption>
+                                                <span class="hotelicon hotelicon-roomservice"></span>
+                                                <p>Room service</p>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                </div> -->
+
+                            </div>
+
+                            <!-- === Room block === -->
+
+                            <div class="room-block">
+                                <h2 class="title">Event overview</h2>
+                                <p>
+                                   <%=data.description  %> 
+                                </p>
+                            </div>
+
+                            <!-- === Room block === -->
+
+                            <div class="room-block">
+
+                                <h2 class="title">House rules</h2>
+
+                                <!-- === box === -->
+
+                                
+
+                                <!-- === box === -->
+
+                               
+                                <!-- === box === -->
+
+                                <div class="box">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p><strong>Luggage storage</strong></p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>Available</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- === box === -->
+
+                                <div class="box">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p><strong>Cancellation/prepayment</strong></p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>
+                                                Cancellation and prepayment policies vary according to room/event type. Please enter the dates of your stay and check the conditions of your required room.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- === box === -->
+
+                                <div class="box">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p><strong>Children and extra beds</strong></p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>All children are welcome.</p>
+                                            
+                                            <p>Extra charges will be applied for extra bed</p>
+                                            <p>Supplements are  calculated automatically in the total costs and will have to be paid for separately during your stay.                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- === box === -->
+
+                                <div class="box">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p><strong>Pets</strong></p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>Pets are  allowed.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div> <!--/col-sm-10-->
+                    </div> <!--/row-->
+                </div> <!--/container-->
+            </div> <!--/room-overview-->
+        </div>
+
+    </section>
+    <section class="subscribe" id="subs">
+        <div class="container">
+            <div class="box">
+                <h2 class="title">Get a Call back</h2>
+                <div class="text">
+                    <p>Enter your phone numbar</p>
+                </div>
+                <div class="form-group">
+                    <form action="/events/<%=data._id%> " method="post" class="val-form" novalidate>
+                    <input type="text" value=""  name="number" id="num" placeholder="phone no" class="form-control" required />
+                    <button class="btn btn-sm btn-main">Go</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section> 
+    <style>
+        html,body{
+            background-color: white;
+        }
+        .item img{
+            width: 100%;
+            height: 100%;
+        }
+        .item{
+            width: 100%;
+            height: 100%;
+        }
+        .page-header{
+            background-image: url('/assets/images/apartment-1.jpg');
+        }
+        @media (max-width: 767px) {
+        .item{
+            height: 200px;
+        }
+        .item img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    </style>

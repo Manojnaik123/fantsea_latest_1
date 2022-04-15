@@ -1,0 +1,937 @@
+
+<% if(cook==1){ %> 
+    <div class="stab">
+        <div class="s1">
+            <div class="s11">
+      <h1>Request a Callback</h1>
+            </div>
+            <div class="s12">
+                <button class="but">X</button>
+            </div>
+        </div>
+        <div class="s2">
+            <form action="/home" method="post">
+            <div>
+                <input class="nam" type="text" placeholder="Name" name="name">
+                <input class="pho" type="text" placeholder="Phone no" name="number">
+            </div>
+            <input class="three" type="text" placeholder="E-mail" name="email">
+            <button>SEND</button>
+            </form>
+        </div>
+
+    </div>
+    <% } %> 
+    <script>
+       document.querySelector('.but').addEventListener('click',function(){
+        document.querySelector('.stab').style.visibility='hidden'
+       })
+        setTimeout(() => {
+            document.querySelector('.stab').style.visibility='visible'
+        },1000);
+    </script>
+    <style>
+        .three{
+            width: 88%;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-left: 6%;
+            margin-top: 20px;
+        /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+
+        }
+        .s2 button{
+            width: 150px;
+            height: 40px;
+            margin-left: 6%;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #003663;
+            color: white;
+        }
+        .s2{
+            display: flex;
+            flex-direction: column;
+            font-family: "Playfair Display", serif;
+            background-image: url('/assets/images/callback.jpg');
+            background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+        }
+        .s2 div{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 25%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .s2 div input{
+            /* width: 40%; */
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 5px;
+        /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+
+        }
+        .nam{
+            width: 30%;
+
+        }
+        .pho{
+            width: 50%;
+        }
+        .s11{
+            width: 80%;
+            height: 100%;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+        }
+        .s11 h1{
+            color: white;
+            font-family: "Playfair Display", serif;
+            margin-top: 23px;
+            margin-left: 20px;
+        }
+        .s12{
+            width: 20%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            
+        }
+        .s12 button{
+            background: none;
+            border: none;
+            color: white;
+            height: 40px;
+            width: 40px;
+            font-size: 30px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        
+        .stab{
+            width: 40%;
+            height: 400px;
+            margin-left: 30%;
+            background-color: white;
+            box-shadow: 0 4px 8px 0 #003663, 0 6px 20px 0 #003663;
+            visibility: hidden;
+            position: fixed;
+            z-index: 1;
+            margin-top: 140px;
+            display: flex;
+            flex-direction: column;
+        }
+        .s1{
+            width: 100%;
+            height: 15%;
+            background-color: #003663;
+            display: flex;
+            flex-direction: row;
+        }
+        .s2{
+            width: 100%;
+            height: 85%;
+        }
+        @media (max-width: 767px) {
+            .stab{
+                width: 90%;
+                height: 50%;
+                margin-left: 5%;
+            }
+            .nam{
+                width: 35%;
+            }
+            .pho{
+                width: 45%;
+            }
+        }
+    </style>
+
+<% layout('layout/boiler') %>
+   
+    
+    
+<section class="frontpage-slider">
+    <div class="owl-slider owl-slider-header">
+
+        <!-- === slide item === -->
+        <% if(data.length>=5){%> 
+            <% let f=' ' %> 
+            <% for(let img of data[4].images){ %>
+                <% f=img.url %> 
+                <% } %>  
+                <div class="item" style="background-image:url(<%=f%>);">
+                    <div class="box text-center">
+                        <div class="container">
+                            <h2 class="title animated h1" data-animation="fadeInDown"><%=data[4].title  %>  </h2>
+                            <div class="desc animated" data-animation="fadeInUp"><%=data[4].description%> </div>
+                            <!-- <div class="desc animated" data-animation="fadeInUp">voluptatem, dolorem ipsum fugit eveniet odio omnis harum amet et necessitatibus soluta quam. Molestiae, quae.</div> -->
+                            <div class="animated" data-animation="fadeInUp">
+                                <a href="/events/<%=data[4]._id%>" class="btn btn-clean">View >></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+        
+        <% } %> 
+
+        <% if(data.length>=6){%> 
+            <% let f=' ' %> 
+            <% for(let img of data[5].images){ %>
+                <% f=img.url %> 
+                <% } %>  
+            <div class="item" style="background-image:url(<%=f%>)">
+                <div class="box text-center">
+                    <div class="container">
+                        <h2 class="title animated h1" data-animation="fadeInDown"><%=data[5].title%> </h2>
+                        <div class="desc animated" data-animation="fadeInUp"><%= data[5].description  %> </div>
+                        <!-- <div class="desc animated" data-animation="fadeInUp">voluptatem, dolorem ipsum fugit eveniet odio omnis harum amet et necessitatibus soluta quam. Molestiae, quae.</div> -->
+                        <div class="animated" data-animation="fadeInUp">
+                            <a href="/events/<%=data[5]._id %> " class="btn btn-clean">View >></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %> 
+
+            <% if(data.length>=7){%> 
+                <% let f=' ' %> 
+            <% for(let img of data[6].images){ %>
+                <% f=img.url %> 
+                <% } %>  
+                <div class="item" style="background-image:url(<%=f%>)">
+                    <div class="box text-center">
+                        <div class="container">
+                            <h2 class="title animated h1" data-animation="fadeInDown"><%=data[6].title  %> </h2>
+                            <div class="desc animated" data-animation="fadeInUp"><%=data[6].description%>  </div>
+                            <!-- <div class="desc animated" data-animation="fadeInUp">voluptatem, dolorem ipsum fugit eveniet odio omnis harum amet et necessitatibus soluta quam. Molestiae, quae.</div> -->
+                            <div class="animated" data-animation="fadeInUp">
+                                <a href="/events/<%=data[6]._id%> " class="btn btn-clean">View >></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %> 
+        <!-- === slide item === -->
+
+        <!-- <div class="item" style="background-image:url(assets/images/img2.jpeg)">
+            <div class="box text-center">
+                <div class="container">
+                    <h2 class="title animated h1" data-animation="fadeInDown">
+                        cannopy dining <br /> <span>pure prestige</span>
+                    </h2>
+                    <div class="desc animated" data-animation="fadeInUp">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, nobis asperiores.
+                    </div>
+                    <div class="desc animated" data-animation="fadeInUp">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, nobis asperiores.
+                    </div>
+                    <div class="animated" data-animation="fadeInUp">
+                        <a href="https://themeforest.net/item/colina-hotel-website-template/20977257" class="btn btn-clean">View >></a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- === slide item === -->
+
+        <!-- <div class="item" style="background-image:url(assets/images/img3.jpeg)">
+            <div class="box text-center">
+                <div class="container">
+                    <h2 class="title animated h1" data-animation="fadeInDown">
+                        candle light dinner at beach <br />
+                        
+                    </h2>
+                    <div class="desc animated" data-animation="fadeInUp">
+                        The Residences have their own dedicated private entrance as well <br />
+                        as an anonymous "celebrity" entrance, for ultimate privacy.
+                    </div>
+                    <div class="animated" data-animation="fadeInUp">
+                        <a href="#" class="btn btn-clean">View >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+ -->
+
+    </div> <!--/owl-slider-->
+</section>
+
+<!-- ========================  Rooms ======================== -->
+
+<section class="rooms rooms-widget rooms-inner">
+
+    <!-- === rooms header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Birthday parties and events <a href="/events" class="btn btn-sm btn-clean">View all</a></h2>
+            <p>Designed as a privileged almost private place where you'll feel right at home</p>
+        </div>
+    </div>
+
+    <!-- === rooms content === -->
+
+    <div class="container">
+
+        <div class="owl-rooms owl-theme">
+       
+            <!-- === rooms item === -->
+            <% if(data.length>=1){ %> 
+                <% let b=' '  %> 
+                <% for(let img of data[0].images){ %> 
+                    <% b=img.url %> 
+                    <% } %> 
+                <div class="item">
+                    <article>
+                        <div class="image">
+                            <img src="<%=b%> " alt="" />
+                            
+                        </div>
+                        <div class="details">
+                            <div class="text">
+                                <h3 class="title"><a href="/events/<%=data[0]._id%>"><%= data[0].title  %>  </a></h3>
+                                <!-- <p>Single room</p> -->
+                            </div>
+                            <div class="book">
+                                <div>
+                                    <a href="/events/<%=data[0]._id%> " class="btn btn-main">View >>  </a>
+                                </div>
+                                <div>
+                                    <span class="price h4"><%= data[0].price  %></span>
+                                    <!-- <span>per night</span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                </div>
+                <% } %> 
+
+                <% if(data.length>=2){ %> 
+                    <% let b=' '  %> 
+                <% for(let img of data[1].images){ %> 
+                    <% b=img.url %> 
+                    <% } %> 
+                    <div class="item">
+                        <article>
+                            <div class="image">
+                                <img src="<%=b%> " alt="" />
+                                
+                            </div>
+                            <div class="details">
+                                <div class="text">
+                                    <h3 class="title"><a href="/events/<%=data[1]._id%>"><%= data[1].title  %>  </a></h3>
+                                    <!-- <p>Single room</p> -->
+                                </div>
+                                <div class="book">
+                                    <div>
+                                        <a href="/events/<%=data[1]._id%>" class="btn btn-main">View >></a>
+                                    </div>
+                                    <div>
+                                        <span class="price h4"><%= data[1].price  %> </span>
+                                        <!-- <span>per night</span>/ -->
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                    </div>
+                    <% } %> 
+
+                    <% if(data.length>=3){ %> 
+                        <% let b=' '  %> 
+                <% for(let img of data[2].images){ %> 
+                    <% b=img.url %> 
+                    <% } %> 
+                        <div class="item">
+                            <article>
+                                <div class="image">
+                                    <img src="<%=b%> " alt="" />
+                                    
+                                </div>
+                                <div class="details">
+                                    <div class="text">
+                                        <h3 class="title"><a href="/events/<%=data[2]._id%>"><%= data[2].title  %>  </a></h3>
+                                        <!-- <p>Single room</p> -->
+                                    </div>
+                                    <div class="book">
+                                        <div>
+                                            <a href="/events/<%=data[2]._id%>" class="btn btn-main">View >></a>
+                                        </div>
+                                        <div>
+                                            <span class="price h4"><%= data[2].price  %> </span>
+                                            <!-- <span>per night</span>/ -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                        </div>
+                        <% } %> 
+
+                        <% if(data.length>=4){ %> 
+                            <% let b=' '  %> 
+                            <% for(let img of data[3].images){ %> 
+                                <% b=img.url %> 
+                                <% } %> 
+                            <div class="item">
+                                <article>
+                                    <div class="image">
+                                        <img src="<%=b%> " alt="" />
+                                        
+                                    </div>
+                                    <div class="details">
+                                        <div class="text">
+                                            <h3 class="title"><a href="/events/<%=data[3]._id%>"><%= data[3].title  %>  </a></h3>
+                                            <!-- <p>Single room</p> -->
+                                        </div>
+                                        <div class="book">
+                                            <div>
+                                                <a href="/events/<%=data[3]._id%>" class="btn btn-main">View >></a>
+                                            </div>
+                                            <div>
+                                                <span class="price h4"><%= data[3].price  %> </span>
+                                                <!-- <span>per night</span>/ -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                            </div>
+                            <% } %> 
+               
+
+            
+
+            <!-- === rooms item === -->
+
+            <!-- <div class="item">
+                <article>
+                    <div class="image">
+                        <img src="https://images.unsplash.com/photo-1537640685236-a9df2496e232?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJlYWNoJTIwcmVzb3J0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3 class="title"><a href="room-overview.html">Royal Beach Resort</a></h3>
+                            <p>Double room</p>
+                        </div>
+                        <div class="book">
+                            <div>
+                                <a href="room-overview.html" class="btn btn-main">Book now</a>
+                            </div>
+                            <div>
+                                <span class="price h4">$ 129,00</span>
+                                <span>per night</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div> -->
+
+            <!-- === rooms item === -->
+
+            <!-- <div class="item">
+                <article>
+                    <div class="image">
+                        <img src="https://images.unsplash.com/photo-1526786220381-1d21eedf92bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YmVhY2glMjByZXNvcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt="" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3 class="title"><a href="">Raja Beach Resort</a></h3>
+                            <p>Queen size bed</p>
+                        </div>
+                        <div class="book">
+                            <div>
+                                <a href="room-overview.html" class="btn btn-main">Book now</a>
+                            </div>
+                            <div>
+                                <span class="price h4">$ 159,00</span>
+                                <span>per night</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div> -->
+
+            <!-- === rooms item === -->
+
+            <!-- <div class="item">
+                <article>
+                    <div class="image">
+                        <img src="https://images.unsplash.com/photo-1526786220381-1d21eedf92bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YmVhY2glMjByZXNvcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt="" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3 class="title"><a href="room-overview.html">Happy days Beach Resort</a></h3>
+                            <p>Family room</p>
+                        </div>
+                        <div class="book">
+                            <div>
+                                <a href="room-overview.html" class="btn btn-main">Book now</a>
+                            </div>
+                            <div>
+                                <span class="price h4">$ 199,00</span>
+                                <span>per night</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div> -->
+
+        </div><!--/owl-rooms-->
+
+    </div> <!--/container-->
+
+</section>
+
+
+<!-- ======================== Booking ======================== -->        
+
+
+
+<!-- ========================  Stretcher widget ======================== -->
+
+<section class="stretcher-wrapper">
+
+    <!-- === stretcher header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Events <a href="/events2" class="btn btn-sm btn-clean-dark">Explore more</a></h2>
+            <p>
+                Get your events done according to your need
+            </p>
+        </div>
+    </div>
+
+    <!-- === stretcher === -->
+
+    <ul class="stretcher">
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(assets/images/event1.jpg);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Birthday</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Birthday</h4>
+                <figcaption>Unparalleled devotion to luxury</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="facility.html">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(assets/images/event2.jpg);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Dine In</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Dine In</h4>
+                <figcaption>Care about results</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="facility.html">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(assets/images/event3.jpg);">
+            
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Concerts</span>
+                </div>
+            </div>
+            <figure>
+                <h4>Concerts</h4>
+                <figcaption>Your daily activities</figcaption>
+            </figure>
+            
+            <a href="facility.html">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(assets/images/services-4.jpg);">
+
+
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Anniversary</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Anniversary</h4>
+                <figcaption>Happy Moments</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="facility.html">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item more === -->
+
+        <li class="stretcher-item more">
+            <div class="more-icon">
+                <span data-title-show="Show more" data-title-hide="+"></span>
+            </div>
+            <a href="/events">Anchor link</a>
+        </li>
+
+    </ul>
+</section>
+
+<!-- ========================  Blog ======================== -->
+
+<section class="blog blog-widget">
+
+    <!-- === stretcher header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Blogs  </h2>
+            <!-- <a href="blog-category.html" class="btn btn-sm btn-clean-dark">Explore more</a> -->
+            <p>
+                Get inspired from these latest blogs
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <!-- === article item === -->
+
+            <div class="col-sm-4">
+                <a href="https://ourkindofcrazy.com/blog/beach-dates/">
+                    <article>
+                        <div class="image">
+                            <img src="https://images.unsplash.com/photo-1528855275993-0f4a23fedd62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJlYWNoJTIwZGF0ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt="" />
+                        </div>
+                        <div class="text">
+                            <div class="time">
+                                <span>22</span>
+                                <span>05</span>
+                                <span>2014</span>
+                            </div>
+                            <h2 class="h4 title">
+                                Beach Date Ideas: Cute and Romantic Beach Dates
+                            </h2>
+                        </div>
+                    </article>
+                </a>
+            </div>
+
+            <!-- === article item === -->
+
+            <div class="col-sm-4">
+                <a href="https://www.mydomaine.com/things-to-do-on-your-anniversary">
+                    <article>
+                        <div class="image">
+                            <img src="https://images.unsplash.com/photo-1606217239582-d9f72323bcd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bWFycmlhZ2UlMjBhbm5pdmVyc2FyeXBhcnR5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="" />
+                        </div>
+                        <div class="text">
+                            <div class="time">
+                                <span>22</span>
+                                <span>05</span>
+                                <span>2014</span>
+                            </div>
+                            <h2 class="h4 title">
+                                34 Totally Fun Things to Do on Your Anniversary
+                            </h2>
+                        </div>
+                    </article>
+                </a>
+            </div>
+
+            <!-- === article item === -->
+
+            <div class="col-sm-4">
+                <a href="https://bucketlistjourney.net/things-to-do-on-your-birthday/">
+                    <article>
+                        <div class="image">
+                            <img src="https://images.unsplash.com/photo-1602631985686-1bb0e6a8696e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmlydGhkYXklMjBwYXJ0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="" />
+                        </div>
+                        <div class="text">
+                            <div class="time">
+                                <span>22</span>
+                                <span>05</span>
+                                <span>2014</span>
+                            </div>
+                            <h2 class="h4 title">
+                                Birthday Bucket List:
+                            </h2>
+                        </div>
+                    </article>
+                </a>
+            </div>
+
+        </div> <!--/row-->
+    </div> <!--/container-->
+</section>
+
+<!-- ========================  Cards ======================== -->
+
+<section class="cards">
+
+    <!-- === cards header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Near by </h2>
+            <p>Here's a selection of ionic sites related to art, fashion and design.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <!-- === item === -->
+
+            <div class="des col-xs-12 col-md-8 dis">
+                <figure>
+                    <figcaption style="background-image:url('assets/images/suryakalbeach.jpg')">
+                        <img src="assets/images/" alt="" />
+                    </figcaption>
+                    <a href="https://www.tripadvisor.in/Attraction_Review-g3136738-d2721541-Reviews-Surya_Lanka_Beach-Bapatla_Guntur_District_Andhra_Pradesh.html" class="btn btn-clean" onclick="">surya Lanka beach</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="background-image:url(assets/images/vbeach.jpg)">
+                        <img src="assets/images/activity-2.jpg" alt="" />
+                    </figcaption>
+                    <a href="https://www.trawell.in/andhra/vijayawada/vodarevu-beach-chirala" class="btn btn-clean">Vodarevu beach</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="background-image:url(assets/images/resto.jpg)">
+                        <img src="assets/images/activity-3.jpg" alt="" />
+                    </figcaption>
+                    <a href="https://www.tripadvisor.in/Restaurants-g5868158-Chirala_Prakasam_District_Andhra_Pradesh.html" class="btn btn-clean">Food & drink</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="background-image:url(assets/images/images.jpg)">
+                        <img src="assets/images/activity-4.jpg" alt="" />
+                    </figcaption>
+                    <a href="https://www.tripadvisor.in/Hotels-g5868158-Chirala_Prakasam_District_Andhra_Pradesh-Hotels.html" class="btn btn-clean">Hotels</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="background-image:url(assets/images/chirala.jpg)">
+                        <img src="assets/images/activity-5.jpg" alt="" />
+                    </figcaption>
+                    <a href="https://www.tripadvisor.in/Tourism-g5868158-Chirala_Prakasam_District_Andhra_Pradesh-Vacations.html" class="btn btn-clean">The City</a>
+                </figure>
+            </div>
+
+        </div> <!--/row-->
+
+    </div> <!--/container-->
+</section>
+
+
+<!-- ======================== Image blocks ======================== -->
+
+
+
+<!-- ======================== Quotes ======================== -->
+
+<section class="quotes quotes-slider" style="background-image:url(assets/images/header-1.jpg)">
+    <div class="container">
+
+        <!-- === Quotes header === -->
+
+        <div class="section-header">
+            <h2 class="title">Testimonials</h2>
+            <p></p>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-2">
+                <div class="quote-carousel">
+
+                    <!-- === quoute item === -->
+
+                    <div class="quote">
+
+                        <div class="text">
+                            <h4>sandeep singh</h4>
+                            <p>They surpassed our expectations and <br />provided so much value to us </p>
+                        </div>
+                        <div class="more">
+                            <div class="rating">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <!-- === quoute item === -->
+
+                    <div class="quote">
+                        <div class="text">
+                            <h4>yash punna</h4>
+                            <p>We are very satisfied with the event  and .believe<br /> they have done an outstanding job.</p>
+                        </div>
+                        <div class="more">
+                            <div class="rating">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- === quoute item === -->
+
+                    <div class="quote">
+                        <div class="text">
+                            <h4>naveen burla</h4>
+                            <p>We're very thankful to have found them and to have established <br />such a great event so quickly.</p>
+                        </div>
+                        <div class="more">
+                            <div class="rating">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- === quoute item === -->
+
+                    <div class="quote">
+                        <div class="text">
+                            <h4>sairam gundu</h4>
+                            <p>They understood what I needed and delivered <br />what i desired for.</p>
+                        </div>
+                        <div class="more">
+                            <div class="rating">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- === quoute item === -->
+
+                    <div class="quote">
+                        <div class="text">
+                            <h4>ranu sita</h4>
+                            <p>I am impressed with quickly they moved and the fact  <br />that quality was not compromised.</p>
+                        </div>
+                        <div class="more">
+                            <div class="rating">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!--/quote-carousel-->
+            </div>
+        </div> <!--/row-->
+    </div> <!--/container-->
+</section>
+
+<!-- ========================  Subscribe ======================== -->
+
+<!-- <section class="subscribe">
+    <div class="container">
+        <div class="box">
+            <h2 class="title">Get a Call back</h2>
+            <div class="text">
+                <p>Enter your phone numbar</p>
+            </div>
+            <div class="form-group">
+                <form action="/home" method="post">
+                <input type="text" value="" name="num" id="num" placeholder="phone no" class="form-control" />
+                <button class="btn btn-sm btn-main">Go</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>  -->
+<style>
+   
+    .des{
+        visibility: visible;
+    }
+    @media only screen and (max-width: 800px) {
+  .des{
+      visibility: hidden;
+      
+  }
+}
+   
+</style>
+
+
+<style>
+
+    @media (max-width: 767px) {
+    .xxx{
+        width: 80%;
+        height: 50%;
+    }
+    .xxx h1{
+        font-size: 20px;
+    }
+}
+</style>
+<script>
+
+
+</script>
