@@ -19,14 +19,13 @@ const cookies=require('cookie-parser')
 const Mail=require('./models/mail')
 const Call=require('./models/call')
 
-
 const multer=require('multer')
 const {storage}=require('./cloudinary');
 const { CallTracker } = require('assert')
 const upload=multer({storage});
-const DB='mongodb+srv://manoj:manoj170901@cluster0.oy2bj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const DB = 'mongodb+srv://manoj:manoj170901@cluster0.oy2bj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
-
+var dg = "jrfhvrjfkv";
 
 app.use(cookies())
 app.use(method('_method'))
