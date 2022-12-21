@@ -26,7 +26,7 @@ const upload=multer({storage});
 const DB = 'mongodb+srv://manoj:manoj170901@cluster0.oy2bj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 var dg = "jrfhvrjfkv";
-
+/*
 app.use(cookies())
 app.use(method('_method'))
 app.set('view engine','ejs')
@@ -34,7 +34,7 @@ app.use(express.static('public'))
 app.use(express.static(path.join(__dirname,'public')));
 app.engine('ejs',ejsMate)
 app.use(express.json({extended:true}))
-app.use(express.urlencoded({extended:true})); 
+app.use(express.urlencoded({extended:true})); */
 
 
 app.use(session({ 
